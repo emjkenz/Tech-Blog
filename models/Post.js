@@ -1,11 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
-    }
-}
+class Post extends Model { }
 
 Post.init(
     {
@@ -32,6 +28,13 @@ Post.init(
             allowNull: false,
         },
     },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'post',
+    }
 );
 
 module.exports = Post;
