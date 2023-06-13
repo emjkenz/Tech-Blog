@@ -23,10 +23,10 @@ router.post('/', (req, res) => {
 
         if (!user || !user.isValidPassword(password)) {
             // If user doesn't exist or password is invalid
-            res.render('login', { error: 'Invalid username or password.' });
+            res.render('login', { error: 'Invalid email or password.', errorType: 'is-danger' });
             return;
         }
-        console.log("here");
+
         // User found and password is valid
         req.session.user = user; // Store the user in the session
         req.session.isLoggedIn = true;
