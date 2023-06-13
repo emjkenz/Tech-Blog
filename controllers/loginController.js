@@ -2,7 +2,12 @@ const router = require('express').Router();
 const { User } = require('../models')
 
 router.get('/', (req, res) => {
-    res.render('login', {pageTitle: " | Login"});
+    res.render('login-signup', {
+        pageTitle: " | Login",
+        loginPage: 'is-active',
+        page: '/login',
+        title: 'Login',
+    });
 })
 
 router.post('/', (req, res) => {
@@ -23,7 +28,14 @@ router.post('/', (req, res) => {
 
         if (!user || !user.isValidPassword(password)) {
             // If user doesn't exist or password is invalid
-            res.render('login', { error: 'Invalid email or password.', errorType: 'is-danger' });
+            res.render('login-signup', { 
+                error: 'Invalid email or password.',
+                errorType: 'is-danger',
+                loginPage: 'is-active',
+                page: '/login',
+                pageTitle: " | Login",
+                title: 'Login',
+            });
             return;
         }
 

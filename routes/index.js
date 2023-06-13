@@ -3,6 +3,7 @@ const {
     homeController,
     dashboardController,
     loginController,
+    signupController,
     logoutController,
     postController,
 } = require('../controllers');
@@ -10,6 +11,7 @@ const {
 router.use('/dashboard', dashboardController);
 router.use('/post', postController);
 router.use('/login', loginController);
+router.use('/signup', signupController);
 router.use('/logout', logoutController);
 router.use('/', homeController);
 
