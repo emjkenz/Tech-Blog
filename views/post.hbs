@@ -21,7 +21,14 @@
     </div>
     <div class="columns">
         <div class="column">
-            <form action="/posts/{{postId}}/comments" method="POST">
+            {{#each comments}}
+                {{> comments}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <form action="/post/{{postID}}/comment" method="post">
                 <div class="field">
                     <label class="label">Comment:</label>
                     <div class="control">
