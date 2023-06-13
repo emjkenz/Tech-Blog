@@ -23,9 +23,12 @@ Post.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
-        author: {
-            type: DataTypes.TEXT,
-            allowNull: false,
+        author_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            }
         },
     },
     {
