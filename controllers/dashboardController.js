@@ -22,6 +22,13 @@ router.get('/', withAuth, async (req, res) => {
     })
 })
 
+router.get('/new', withAuth, (req, res) => {
+    res.render('edit', {
+        pageTitle: ` | New`,
+        id: req.session.user.id
+    })
+})
+
 router.get('/:id', withAuth, async (req, res) => {
     const postData = await Post.findByPk(req.params.id);
     const post = postData.get({plain: true});
