@@ -39,4 +39,17 @@ router.get('/:id', withAuth, async (req, res) => {
     })
 })
 
+router.get('/delete/:id', withAuth, async (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.id
+        },
+        force: true,
+    }).then(err => {
+        res.redirect('/dashboard')
+    });
+
+    
+})
+
 module.exports = router;
