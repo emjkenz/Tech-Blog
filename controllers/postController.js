@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
         
     }).then(post => {
         const p = post.get({ plain: true })
-        res.render('post', {...p, ...{isLoggedIn: req.session.isLoggedIn}});
+        res.render('post', {...p, ...{pageTitle: " | "+p.title, isLoggedIn: req.session.isLoggedIn}});
     })
 })
 

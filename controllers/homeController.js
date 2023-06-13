@@ -9,7 +9,7 @@ const home = (req, res) => {
     })
     .then(posts => {
         const allPosts = posts.map(post => post.get({plain:true}))
-        res.render('home', {posts: allPosts, isLoggedIn: req.session.isLoggedIn});
+        res.render('home', {posts: allPosts, pageTitle:" | Home", isLoggedIn: req.session.isLoggedIn});
     });
     
 }
