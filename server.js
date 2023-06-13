@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./routes');
-// const helpers = require('./utils/helpers');
+const helpers = require('./helpers');
 
 const sequelize = require('./config/connection');
 
@@ -16,8 +16,8 @@ const PORT = process.env.PORT || 3001;
 // const hbs = exphbs.create({ helpers });
 const hbs = exphbs.create({
     defaultLayout: 'main',
-    extname: '.hbs'
-    //helpers
+    extname: '.hbs',
+    helpers,
 });
 
 // Configure and link a session object with the sequelize store
