@@ -19,4 +19,22 @@
             <p>{{{formatTime date}}} - {{{formatDate date}}}</p>
         </div>
     </div>
+    <div class="columns">
+        <div class="column">
+            <form action="/posts/{{postId}}/comments" method="POST">
+                <div class="field">
+                    <label class="label">Comment:</label>
+                    <div class="control">
+                        <textarea class="textarea" name="content" placeholder="Enter your comment" required></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="user" value="{{user.id}}">
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-primary" type="submit">Post Comment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
