@@ -6,27 +6,10 @@
     </div>
     <div class="columns">
         <div class="column">
-            <h2 class="title is-2">Your Post</h2>
-            <form action="/post" method="post">
-                <div class="field">
-                    <label class="label">Title</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input name="title" class="input" type="text" placeholder="Title">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-clipboard"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="field">
-                    <textarea name="post" class="textarea" placeholder="e.g. Hello world"></textarea>
-                </div>
-                <input name="id" value="{{id}}" type="hidden">
-                <div class="field">
-                    <p class="control">
-                        <button class="button is-success">Post</button>
-                    </p>
-                </div>
-            </form>
+            <h2 class="title is-2">Your Posts</h2>
+            {{#each posts}}
+            {{> dashboardPosts}}
+            {{/each}}
         </div>
     </div>
 </div>

@@ -52,6 +52,22 @@ router.get('/:id', async (req, res) => {
     } 
 })
 
+router.post('/:id', withAuth, (req, res) => {
+    const {title, post} = req.body;
+    Post.update({
+        title: title,
+        post: post,
+        date: new Date(),
+    },
+    {
+        where: {
+            id: req.params.id
+        }
+    }).then(err => {
+        res.redirect('/dashboard')
+    })
+})
+
 router.post('/:id/comment', withAuth, async (req, res) => {
     const postId = req.params.id;
 

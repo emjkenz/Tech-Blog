@@ -1,0 +1,31 @@
+<div class="container is-max-desktop">
+    <div class="columns">
+        <div class="column">
+            <h1 class="title is-1">Edit</h1>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <form action="/post/{{post.id}}" method="post">
+                <div class="field">
+                    <label class="label">Title</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input name="title" class="input" type="text" placeholder="Title" value="{{post.title}}">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-clipboard"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <textarea name="post" class="textarea" placeholder="e.g. Hello world">{{post.post}}</textarea>
+                </div>
+                <input name="id" value="{{id}}" type="hidden">
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-success">Post</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
